@@ -36,7 +36,7 @@ describe Versionable::VersionNumber do
 
   describe "#hash" do
     it "is the string hash after stripping trailing zero segments" do
-      v("1").hash.should == v("1.0.000").hash
+      v("1").hash.should == v("1.0.0.0.0").hash
       v("1").hash.should_not == v("2").hash
     end
   end

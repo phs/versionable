@@ -26,7 +26,7 @@ module Versionable
     end
     
     def find(version_requirement)
-      if version_requirement =~ VersionNumber::REGEX
+      if version_requirement =~ VersionNumber::VERSION_NUMBER_REGEX
         versions[VersionNumber.new(version_requirement)]
       elsif version_requirement =~ Versions::COMPARISON_REGEX
         comparator, version_requirement = $1, VersionNumber.new($2)

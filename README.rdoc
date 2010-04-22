@@ -1,6 +1,40 @@
-= versionable
+= Versionable
 
 Versionable lets a ruby module or class declare multiple numbered versions of itself, and provides a way to select one based on a gem-like requirement.
+
+The jist:
+  class Versioned
+    include Versionable
+
+    def foo; :past_foo; end
+    def baz; :baz; end
+
+    version "0.5"
+
+    def foo; :foo; end
+    def self.bar; :bar; end
+
+    version "1" do
+      def foo; :future_foo; end
+    end
+
+    version "2" do
+      def foo; :far_future_foo; end
+    end
+  end
+
+And then:
+  Versioned['0'].new.foo                  # => :past_foo
+  Versioned['0.5'].new.foo                # => :foo
+  Versioned['1'].new.foo                  # => :future_foo
+  Versioned['2'].new.foo                  # => :far_future_foo
+  Versioned == Versioned['0.5']           # => true
+  Versioned['>= 1'] == Versioned['2']     # => true
+  Versioned['< 1'] == Versioned['0.5']    # => true
+
+It turns out <tt>Class#dup</tt> can do some crazy things.  Each version is cloned from the previous and then includes its own changes.  This means <tt>def self.class_methods()</tt> and <tt>@@class_variables</tt> end up versioned as well; not just instance methods.
+
+The default version (the one you get without a [requirement]) is determined by the use of blocks passed to the +version+ calls.  The last call without a block is the default one.
 
 == Note on Patches/Pull Requests
  
@@ -11,6 +45,10 @@ Versionable lets a ruby module or class declare multiple numbered versions of it
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
+
+== Thanks
+
+Thanks to SEOmoz (http://seomoz.org) for letting me build this at my desk in the afternoons instead of on the couch in the middle of the night ^_^.
 
 == Copyright
 
