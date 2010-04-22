@@ -1,6 +1,6 @@
 = versionable
 
-Description goes here.
+Versionable lets a ruby module or class declare multiple numbered versions of itself, and provides a way to select one based on a gem-like requirement.
 
 == Note on Patches/Pull Requests
  
