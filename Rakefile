@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "versionable"
-    gem.summary = %Q{An api for versioning ruby modules.}
+    gem.summary = %Q{An api for versioning ruby modules}
     gem.description = %Q{Versionable lets a ruby module or class declare multiple numbered versions of itself, and provides a way to select one based on a gem-like requirement.}
     gem.email = "phil.h.smith@gmail.com"
     gem.homepage = "http://github.com/phs/versionable"
