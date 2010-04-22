@@ -49,10 +49,16 @@ describe Versionable do
         version "2" do
           def foo; :future_foo; end
         end
+      end
+    end
 
-        version "3" do
+    it "returns the value of its block, if any" do
+      class Versioned
+        (version "3" do
           def foo; :far_future_foo; end
-        end
+          
+          :returned
+        end).should == :returned
       end
     end
 
