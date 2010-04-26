@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Phil Smith"]
-  s.date = %q{2010-04-22}
+  s.date = %q{2010-04-26}
   s.description = %q{Versionable lets a ruby module or class declare multiple numbered versions of itself, and provides a way to select one based on a gem-like requirement.}
   s.email = %q{phil.h.smith@gmail.com}
   s.extra_rdoc_files = [
@@ -29,13 +29,14 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "spec/versionable/version_number_spec.rb",
-     "spec/versionable_spec.rb"
+     "spec/versionable_spec.rb",
+     "versionable.gemspec"
   ]
   s.homepage = %q{http://github.com/phs/versionable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{An api for versioning ruby modules.}
+  s.summary = %q{An api for versioning ruby modules}
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/versionable/version_number_spec.rb",
