@@ -45,13 +45,6 @@ module Versionable
       (self <=> other) == 0
     end
 
-    # Bump to the next most-significant version number.
-    #
-    # VersionNumber.new("2.1").next.to_s # => "3"
-    def next
-      self.class.new(split('.', 2).first.to_i + 1)
-    end
-
     # Hash the version number string after stripping any trailing zeroes.
     #
     # This preserves the hash/equality contract: 2 == 2.0, so they both hash the same as well.

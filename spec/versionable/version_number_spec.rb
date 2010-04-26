@@ -28,12 +28,6 @@ describe Versionable::VersionNumber do
     end
   end
   
-  describe "#next" do
-    it "bumps most significant segment by 1 and drops remainder" do
-      v("1.0").next.should == v("2")
-    end
-  end
-
   describe "#hash" do
     it "is the string hash after stripping trailing zero segments" do
       v("1").hash.should == v("1.0.0.0.0").hash
